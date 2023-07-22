@@ -5,5 +5,5 @@ Redash allows you to create queries and dashboards through UI. But if you need t
 
 ## Usage:
 ```sh
-   python ./dashboard_export.py --redash-url http://127.0.0.1:33080/  --api-key P4KlA0AxxxxxxxxxxxxfdVVexEZK
+   python ./dashboard_export.py --redash-url <YOUR_REDASH_URL>  --api-key <YOUR_REDASH_API_KEY>
 ```
