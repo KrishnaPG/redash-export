@@ -12,3 +12,6 @@ Redash allows you to create queries and dashboards through UI. But if you need t
    ```sh
       python ./dashboard_export.py --redash-url <YOUR_REDASH_URL>  --api-key <YOUR_REDASH_API_KEY>
    ```
+
+#### Credit
+Originally based on the GIST: https://gist.github.com/y-yoi/059006cbab4437ad6eca94c1cf497ccf later heavily modified to streamline the download and output to JSON.
