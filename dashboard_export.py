@@ -12,10 +12,18 @@ def get_dashboards(url, api_key):
     path = "{}/api/dashboards".format(url)
     has_more = True
     page = 1
+    newRoute = False
     while has_more:
         response = requests.get(path, headers=headers, params={'page': page}).json()
         for result in response['results']:
-            dashboard = requests.get("{}/{}".format(path, result['slug']), headers=headers).json()
+            if not newRoute:
+                dashboard_resp = requests.get("{}/{}".format(path, result['slug']), headers=headers)
+                dashboard = dashboard_resp.json()
+            
+            if newRoute or dashboard_resp.status_code == 500:
+                dashboard = requests.get("{}/{}".format(path, result['id']), headers=headers).json()
+                newRoute = True
+                
             save_dashboard(dashboard)
         has_more = page * response['page_size'] + 1 <= response['count']
         page += 1
